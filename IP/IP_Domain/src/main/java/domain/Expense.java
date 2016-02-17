@@ -47,36 +47,35 @@ public class Expense {
         return this.dateTime;
     }
 
-    // Protected for bi-directional association
-    protected void setCategory(Category category) {
+    public void setCategory(Category category) {
         if(category == null) {
             throw new IllegalArgumentException("Category is null");
         }
         this.category = category;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         if(name == null || name.equals("")) {
             throw new IllegalArgumentException("Name is null");
         }
         this.name = name;
     }
 
-    private void setAmount(double amount) {
+    public void setAmount(double amount) {
         if(amount <= 0) {
             throw new IllegalArgumentException("Amount is negative or zero");
         }
         this.amount = amount;
     }
     
-    private void setPriority(Priority priority) {
+    public void setPriority(Priority priority) {
         if(priority == null) {
             throw new IllegalArgumentException("Priority is null");
         }
         this.priority = priority;
     }
     
-    private void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(LocalDateTime dateTime) {
         if(dateTime == null) {
             throw new IllegalArgumentException("DateTime is null");
         }

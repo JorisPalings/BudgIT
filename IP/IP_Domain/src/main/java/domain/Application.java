@@ -1,19 +1,19 @@
 package domain;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * @author Joris
  */
 public class Application {
     
-    private ArrayList<Category> categories;
+    private HashSet<Category> categories;
     
     public Application() {
-        this.categories = new ArrayList<>();
+        this.categories = new HashSet<>();
     }
     
-    public ArrayList<Category> getCategories() {
+    public HashSet<Category> getCategories() {
         return this.categories;
     }
     

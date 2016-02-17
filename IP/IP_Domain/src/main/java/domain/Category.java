@@ -11,8 +11,12 @@ public class Category {
     private ArrayList<Expense> expenses;
 
     public Category(String name) {
+        this(name, new ArrayList<>());
+    }
+
+    public Category(String name, ArrayList<Expense> expenses) {
         this.setName(name);
-        this.setExpenses(new ArrayList<>());
+        this.setExpenses(expenses);
     }
 
     public String getName() {
@@ -23,21 +27,20 @@ public class Category {
         return this.expenses;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         if(name == null || name.equals("")) {
             throw new IllegalArgumentException("Name is null");
         }
         this.name = name;
     }
 
-    private void setExpenses(ArrayList<Expense> expenses) {
+    public void setExpenses(ArrayList<Expense> expenses) {
         if(expenses == null) {
             throw new IllegalArgumentException("Expenses is null");
         }
         this.expenses = expenses;
     }
     
-    // Bi-directional association
     public void addExpense(Expense expense) {
         if(expense == null) {
             throw new IllegalArgumentException("Expense is null");
@@ -46,7 +49,6 @@ public class Category {
         expense.setCategory(this);
     }
     
-    // Bi-directional association
     public void removeExpense(Expense expense) {
         if(expense == null) {
             throw new IllegalArgumentException("Expense is null");
