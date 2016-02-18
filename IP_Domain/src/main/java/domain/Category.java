@@ -58,5 +58,13 @@ public class Category {
         }
         this.getExpenses().remove(expense);
     }
+    
+    public double getTotal() {
+        double total = 0;
+        for(Expense e: this.getExpenses()) {
+            total += e.getAmount();
+        }
+        return total;
+    }
 
 }

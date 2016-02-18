@@ -7,10 +7,18 @@ import java.util.HashSet;
  */
 public class Application {
     
+    private static Application uniqueInstance = null;
     private HashSet<Category> categories;
     
-    public Application() {
+    private Application() {
         this.categories = new HashSet<>();
+    }
+    
+    public static Application getUniqueInstance() {
+        if(uniqueInstance == null) {
+            uniqueInstance = new Application();
+        }
+        return uniqueInstance;
     }
     
     public HashSet<Category> getCategories() {
@@ -50,20 +58,39 @@ public class Application {
         category.addExpense(expense);
     }
     
-    public void removeExpense(Expense expense) {
+    public void removeExpense(Expense expense, Category category) {
         if(expense == null) {
             throw new IllegalArgumentException("Expense is null");
         }
+        if(category == null) {
+            throw new IllegalArgumentException("Category is null");
+        }
         boolean removed = false;
         for(Category c: this.getCategories()) {
-            if(c.getExpenses().contains(expense)) {
-                c.removeExpense(expense);
-                removed = true;
+            if(c.equals(category)) {
+                for(Expense e: c.getExpenses()) {
+                    if(e.equals(expense)) {
+                        c.removeExpense(e);
+                        removed = true;
+                    }
+                }
             }
         }
         if(!removed) {
             throw new IllegalArgumentException("Expense does not exists");
         }
+    }
+    
+    public double getCategoryTotal(Category category) {
+        return category.getTotal();
+    }
+    
+    public double getTotal() {
+        double total = 0;
+        for(Category c: this.getCategories()) {
+            total += c.getTotal();
+        }
+        return total;
     }
 
 }
