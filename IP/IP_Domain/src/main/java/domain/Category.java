@@ -59,6 +59,16 @@ public class Category {
         this.getExpenses().remove(expense);
     }
     
+    public boolean contains(Expense expense) {
+        boolean contains = false;
+        for(Expense e: this.getExpenses()) {
+            if(e.equals(expense)) {
+                contains = true;
+            }
+        }
+        return contains;
+    }
+    
     public double getTotal() {
         double total = 0;
         for(Expense e: this.getExpenses()) {

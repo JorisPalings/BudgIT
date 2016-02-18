@@ -68,13 +68,13 @@ public class ApplicationTest {
     
     // Other methods
     @Test (expected = IllegalArgumentException.class)
-    public void addCategory_gooit_exception_bij_bestaande_categorie() {
+    public void addCategory_gooit_exception_bij_bestaande_category() {
         defaultApplication.addCategory(defaultCategory);
         defaultApplication.addCategory(defaultCategory);
     }
     
     @Test (expected = IllegalArgumentException.class)
-    public void removeCategory_gooit_exception_bij_onbestaande_categorie() {
+    public void removeCategory_gooit_exception_bij_onbestaande_category() {
         defaultApplication.removeCategory(defaultCategory);
     }
     
@@ -87,6 +87,19 @@ public class ApplicationTest {
     @Test (expected = IllegalArgumentException.class)
     public void removeExpense_gooit_exception_bij_onbestaande_expense() {
         defaultApplication.removeExpense(defaultExpense, defaultCategory);
+    }
+    
+    @Test
+    public void addCategory_voegt_nieuwe_category_toe_bij_onbestaande_category() {
+        defaultApplication.addCategory(defaultCategory);
+        assertTrue(defaultApplication.contains(defaultCategory));
+    }
+    
+    @Test
+    public void addExpense_voegt_nieuwe_expense_toe_bij_onbestaande_expense() {
+        defaultApplication.addCategory(defaultCategory);
+        defaultApplication.addExpense(defaultExpense, defaultCategory);
+        assertTrue(defaultApplication.contains(defaultCategory, defaultExpense));
     }
     
 }
