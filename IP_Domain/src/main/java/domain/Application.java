@@ -81,6 +81,30 @@ public class Application {
         }
     }
     
+    public boolean contains(Category category) {
+        boolean contains = false;
+        for(Category c: this.getCategories()) {
+            if(c.equals(category)) {
+                contains = true;
+            }
+        }
+        return contains;
+    }
+    
+    public boolean contains(Category category, Expense expense) {
+        boolean contains = false;
+        for(Category c: this.getCategories()) {
+            if(c.equals(category)) {
+                for(Expense e: c.getExpenses()) {
+                    if(e.equals(expense)) {
+                        contains = true;
+                    }
+                }
+            }
+        }
+        return contains;
+    }
+    
     public double getCategoryTotal(Category category) {
         return category.getTotal();
     }
