@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDateTime;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -22,7 +23,7 @@ public class ExpenseTest {
     private LocalDateTime differentDateTime;
     
     @Before
-       public void setUp() {
+    public void setUp() {
         defaultCategory = new Category("Huishouden");
         differentCategory = new Category("Boodschappen");
         defaultName = "Nieuwe auto";
@@ -33,6 +34,20 @@ public class ExpenseTest {
         differentPriority = Priority.TOP;
         defaultDateTime = LocalDateTime.now();
         differentDateTime = LocalDateTime.MAX;
+    }
+       
+    @After
+    public void tearDown() {
+        defaultCategory = null;
+        differentCategory = null;
+        defaultName = null;
+        differentName = null;
+        defaultAmount = 0;
+        differentAmount = 0;
+        defaultPriority = null;
+        differentPriority = null;
+        defaultDateTime = null;
+        differentDateTime = null;
     }
        
     // Constructor functionality
@@ -63,67 +78,67 @@ public class ExpenseTest {
     }
 
     // Null checks
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_categorie_null() {
         Expense expense = new Expense(null, defaultName, defaultAmount);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_name_null() {
         Expense expense = new Expense(defaultCategory, null, 3.14);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_name_lege_String() {
         Expense expense = new Expense(defaultCategory, "", 3.14);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_amount_negatief() {
         Expense expense = new Expense(defaultCategory, null, -3.14);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_amount_nul() {
         Expense expense = new Expense(defaultCategory, null, 0);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void Expense_4_args_gooit_exception_bij_priority_null() {
         Expense expense = new Expense(defaultCategory, null, 3.14, null);
     }
     
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setCategory_gooit_exception_bij_categorie_null() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setCategory(null);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_null() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setName(null);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_lege_String() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setName("");
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setAmount_gooit_exception_bij_amount_negatief() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setAmount(-3.14);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setAmount_gooit_exception_bij_amount_nul() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setAmount(0);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setPriority_gooit_exception_bij_priority_null() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setPriority(null);

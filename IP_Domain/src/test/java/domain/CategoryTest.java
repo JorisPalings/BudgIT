@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -26,6 +27,15 @@ public class CategoryTest {
         defaultExpense = new Expense(new Category("Boodschappen"), "Toiletpapier", 3.14, Priority.TOP);
         differentExpenses.add(defaultExpense);
     }
+        
+    @After
+    public void tearDown() {
+        defaultName = null;
+        differentName = null;
+        defaultExpenses = null;
+        differentExpenses = null;
+        defaultExpense = null;
+    }
     
     // Constructors
     @Test
@@ -49,32 +59,32 @@ public class CategoryTest {
     }
             
     // Null checks
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_null() {
         Category category = new Category(defaultName);
         category.setName(null);
     }
     
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_lege_String() {
         Category category = new Category(defaultName);
         category.setName("");
     }
     
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void setExpenses_gooit_exception_bij_expenses_null() {
         Category category = new Category(defaultName);
         category.setExpenses(null);
     }
     
     // Other methods
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void addExpense_gooit_exception_bij_expense_null() {
         Category category = new Category(defaultName, null);
         category.addExpense(null);
     }
     
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = DomainException.class)
     public void removeExpense_gooit_exception_bij_expense_null() {
         Category category = new Category(defaultName, defaultExpenses);
         category.removeExpense(null);
