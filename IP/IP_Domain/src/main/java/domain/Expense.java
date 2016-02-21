@@ -49,35 +49,35 @@ public class Expense {
 
     public void setCategory(Category category) {
         if(category == null) {
-            throw new IllegalArgumentException("Category is null");
+            throw new DomainException("Category is null");
         }
         this.category = category;
     }
 
     public void setName(String name) {
         if(name == null || name.equals("")) {
-            throw new IllegalArgumentException("Name is null");
+            throw new DomainException("Name is null or an empty String");
         }
         this.name = name;
     }
 
     public void setAmount(double amount) {
         if(amount <= 0) {
-            throw new IllegalArgumentException("Amount is negative or zero");
+            throw new DomainException("Amount is negative or zero");
         }
         this.amount = amount;
     }
     
     public void setPriority(Priority priority) {
         if(priority == null) {
-            throw new IllegalArgumentException("Priority is null");
+            throw new DomainException("Priority is null");
         }
         this.priority = priority;
     }
     
     public void setDateTime(LocalDateTime dateTime) {
         if(dateTime == null) {
-            throw new IllegalArgumentException("DateTime is null");
+            throw new DomainException("DateTime is null");
         }
         this.dateTime = dateTime;
     }

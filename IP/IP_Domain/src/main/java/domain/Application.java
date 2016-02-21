@@ -1,5 +1,7 @@
 package domain;
 
+import database.Database;
+import database.DatabaseFactory;
 import java.util.HashSet;
 
 /**
@@ -7,112 +9,65 @@ import java.util.HashSet;
  */
 public class Application {
     
-    private static Application uniqueInstance = null;
-    private HashSet<Category> categories;
+    private Database database;
     
-    private Application() {
-        this.categories = new HashSet<>();
+    public Application(String databaseType) {
+        DatabaseFactory databaseFactory = new DatabaseFactory();
+        this.database = databaseFactory.createDatabase(databaseType);
     }
     
-    public static Application getUniqueInstance() {
-        if(uniqueInstance == null) {
-            uniqueInstance = new Application();
-        }
-        return uniqueInstance;
+    public Database getDatabase() {
+        return this.database;
     }
     
     public HashSet<Category> getCategories() {
-        return this.categories;
+        return this.getDatabase().getCategories();
     }
     
     public void addCategory(Category category) {
-        if(category == null) {
-            throw new IllegalArgumentException("Category is null");
-        }
-        if(this.getCategories().contains(category)) {
-            throw new IllegalArgumentException("Category already exists");
-        }
-        this.getCategories().add(category);
+        this.getDatabase().addCategory(category);
     }
     
     public void removeCategory(Category category) {
-        if(category == null) {
-            throw new IllegalArgumentException("Category is null");
-        }
-        if(!this.getCategories().contains(category)) {
-            throw new IllegalArgumentException("Category does not exists");
-        }
-        this.getCategories().remove(category);
+        this.getDatabase().removeCategory(category);
     }
     
     public void addExpense(Expense expense, Category category) {
-        if(expense == null) {
-            throw new IllegalArgumentException("Expense is null");
-        }
-        if(category == null) {
-            throw new IllegalArgumentException("Category is null");
-        }
-        if(category.getExpenses().contains(expense)) {
-            throw new IllegalArgumentException("Expense already exists");
-        }
-        category.addExpense(expense);
+        this.getDatabase().addExpense(expense, category);
     }
     
     public void removeExpense(Expense expense, Category category) {
-        if(expense == null) {
-            throw new IllegalArgumentException("Expense is null");
-        }
-        if(category == null) {
-            throw new IllegalArgumentException("Category is null");
-        }
-        boolean removed = false;
-        for(Category c: this.getCategories()) {
-            if(c.equals(category)) {
-                for(Expense e: c.getExpenses()) {
-                    if(e.equals(expense)) {
-                        c.removeExpense(e);
-                        removed = true;
-                    }
-                }
-            }
-        }
-        if(!removed) {
-            throw new IllegalArgumentException("Expense does not exists");
-        }
+        this.getDatabase().removeExpense(expense, category);
     }
     
     public boolean contains(Category category) {
-        boolean contains = false;
-        for(Category c: this.getCategories()) {
-            if(c.equals(category)) {
-                contains = true;
-            }
+        if(category == null) {
+            throw new DomainException("Category is null");
         }
-        return contains;
+        return this.getDatabase().getCategories().contains(category);
     }
     
     public boolean contains(Category category, Expense expense) {
-        boolean contains = false;
-        for(Category c: this.getCategories()) {
-            if(c.equals(category)) {
-                for(Expense e: c.getExpenses()) {
-                    if(e.equals(expense)) {
-                        contains = true;
-                    }
-                }
-            }
+        if(category == null) {
+            throw new DomainException("Category is null");
         }
-        return contains;
+        if(expense == null) {
+            throw new DomainException("Expense is null");
+        }
+        return category.contains(expense);
     }
     
     public double getCategoryTotal(Category category) {
+        if(category == null) {
+            throw new DomainException("Category is null");
+        }
         return category.getTotal();
     }
     
     public double getTotal() {
         double total = 0;
         for(Category c: this.getCategories()) {
-            total += c.getTotal();
+            total += getCategoryTotal(c);
         }
         return total;
     }

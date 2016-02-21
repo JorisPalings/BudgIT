@@ -29,21 +29,21 @@ public class Category {
 
     public void setName(String name) {
         if(name == null || name.equals("")) {
-            throw new IllegalArgumentException("Name is null");
+            throw new DomainException("Name is null");
         }
         this.name = name;
     }
 
     public void setExpenses(ArrayList<Expense> expenses) {
         if(expenses == null) {
-            throw new IllegalArgumentException("Expenses is null");
+            throw new DomainException("Expenses is null");
         }
         this.expenses = expenses;
     }
     
     public void addExpense(Expense expense) {
         if(expense == null) {
-            throw new IllegalArgumentException("Expense is null");
+            throw new DomainException("Expense is null");
         }
         this.getExpenses().add(expense);
         expense.setCategory(this);
@@ -51,10 +51,10 @@ public class Category {
     
     public void removeExpense(Expense expense) {
         if(expense == null) {
-            throw new IllegalArgumentException("Expense is null");
+            throw new DomainException("Expense is null");
         }
         if(!this.getExpenses().contains(expense)) {
-            throw new IllegalArgumentException("Expense does not exist");
+            throw new DomainException("Expense does not exist");
         }
         this.getExpenses().remove(expense);
     }
