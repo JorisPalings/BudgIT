@@ -2,6 +2,7 @@ package database;
 
 import domain.Category;
 import domain.Expense;
+import domain.Priority;
 import java.util.HashSet;
 
 /**
@@ -9,9 +10,7 @@ import java.util.HashSet;
  */
 public class RelationalDatabase implements Database {
     
-    public RelationalDatabase() {
-        
-    }
+    public RelationalDatabase() {}
 
     @Override
     public HashSet<Category> getCategories() {
@@ -24,12 +23,37 @@ public class RelationalDatabase implements Database {
     }
 
     @Override
+    public void changeCategoryName(Category category, String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void removeCategory(Category category) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void addExpense(Expense expense, Category category) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changeExpenseCategory(Expense expense, Category category) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changeExpenseName(Expense expense, String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changeExpenseAmount(Expense expense, double amount) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changeExpensePriority(Expense expense, Priority priority) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
