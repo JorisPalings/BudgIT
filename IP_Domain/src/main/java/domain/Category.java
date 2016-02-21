@@ -28,7 +28,7 @@ public class Category {
     }
 
     public void setName(String name) {
-        if(name == null || name.equals("")) {
+        if(name == null || name.trim().equals("")) {
             throw new DomainException("Name is null");
         }
         this.name = name;
