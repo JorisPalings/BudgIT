@@ -28,12 +28,32 @@ public class Application {
         this.getDatabase().addCategory(category);
     }
     
+    public void changeCategoryName(Category category, String name) {
+        this.getDatabase().changeCategoryName(category, name);
+    }
+    
     public void removeCategory(Category category) {
         this.getDatabase().removeCategory(category);
     }
     
     public void addExpense(Expense expense, Category category) {
         this.getDatabase().addExpense(expense, category);
+    }
+    
+    public void changeExpenseCategory(Expense expense, Category category) {
+        this.getDatabase().changeExpenseCategory(expense, category);
+    }
+    
+    public void changeExpenseName(Expense expense, String name) {
+        this.getDatabase().changeExpenseName(expense, name);
+    }
+    
+    public void changeExpenseAmount(Expense expense, double amount) {
+        this.getDatabase().changeExpenseAmount(expense, amount);
+    }
+    
+    public void changeExpensePriority(Expense expense, Priority priority) {
+        this.getDatabase().changeExpensePriority(expense, priority);
     }
     
     public void removeExpense(Expense expense, Category category) {
