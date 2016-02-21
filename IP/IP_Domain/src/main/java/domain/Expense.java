@@ -55,7 +55,7 @@ public class Expense {
     }
 
     public void setName(String name) {
-        if(name == null || name.equals("")) {
+        if(name == null || name.trim().equals("")) {
             throw new DomainException("Name is null or an empty String");
         }
         this.name = name;

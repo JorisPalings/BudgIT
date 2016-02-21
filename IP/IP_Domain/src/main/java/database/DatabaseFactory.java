@@ -1,8 +1,5 @@
 package database;
 
-import database.Database;
-import database.StubDatabase;
-
 /**
  * @author Joris
  */
