@@ -113,6 +113,12 @@ public class ExpenseTest {
     }
 
     @Test (expected = DomainException.class)
+    public void setName_gooit_exception_bij_name_spaties() {
+        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        expense.setName("          ");
+    }
+
+    @Test (expected = DomainException.class)
     public void setAmount_gooit_exception_bij_amount_negatief() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
         expense.setAmount(-3.14);
@@ -131,7 +137,6 @@ public class ExpenseTest {
     }
     
     // Setter functionality
-
     @Test
     public void setName_verandert_naam() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);

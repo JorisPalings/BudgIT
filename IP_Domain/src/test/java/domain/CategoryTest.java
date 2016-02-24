@@ -72,12 +72,18 @@ public class CategoryTest {
     }
     
     @Test (expected = DomainException.class)
+    public void setName_gooit_exception_bij_name_spaties() {
+        Category category = new Category(defaultName);
+        category.setName("          ");
+    }
+    
+    @Test (expected = DomainException.class)
     public void setExpenses_gooit_exception_bij_expenses_null() {
         Category category = new Category(defaultName);
         category.setExpenses(null);
     }
     
-    // Other methods
+    // Other methods: Exceptions
     @Test (expected = DomainException.class)
     public void addExpense_gooit_exception_bij_expense_null() {
         Category category = new Category(defaultName, null);
@@ -88,6 +94,27 @@ public class CategoryTest {
     public void removeExpense_gooit_exception_bij_expense_null() {
         Category category = new Category(defaultName, defaultExpenses);
         category.removeExpense(null);
+    }
+    
+    @Test (expected = DomainException.class)
+    public void contains_gooit_exception_bij_expense_null() {
+        Category category = new Category(defaultName, defaultExpenses);
+        category.contains(null);
+    }
+    
+    // Other methods: correct functioning
+    @Test
+    public void setName_verandert_name_bij_geldige_name() {
+        Category category = new Category(defaultName, defaultExpenses);
+        category.setName(differentName);
+        assertEquals(category.getName(), differentName);
+    }
+    
+    @Test
+    public void setExpenses_verandert_expenses_bij_geldige_expenses() {
+        Category category = new Category(defaultName, defaultExpenses);
+        category.setExpenses(differentExpenses);
+        assertEquals(category.getExpenses(), differentExpenses);
     }
     
     @Test

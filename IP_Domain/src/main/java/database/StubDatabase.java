@@ -42,11 +42,8 @@ public class StubDatabase implements Database {
         }
         for(Category c: this.getCategories()) {
             if(c.getName().trim().equals(name)) {
-                throw new IllegalArgumentException("Category with that name already exists");
+                throw new DatabaseException("Category with that name already exists");
             }
-        }
-        if(name == null || name.trim().equals("")) {
-            throw new DatabaseException("Name is null or an empty String");
         }
         category.setName(name);
     }
@@ -84,7 +81,14 @@ public class StubDatabase implements Database {
         if(category == null) {
             throw new DatabaseException("Category is null");
         }
-        category.addExpense(expense); 
+        Category originalCategory = null;
+        for(Category c: this.getCategories()) {
+            if(c.getExpenses().contains(expense)) {
+                originalCategory = c;
+            }
+        }
+        category.addExpense(expense);
+        originalCategory.removeExpense(expense);
     }
     
     @Override
@@ -119,19 +123,20 @@ public class StubDatabase implements Database {
         if(category == null) {
             throw new DatabaseException("Category is null");
         }
-        boolean removed = false;
+        Expense toRemove = null;
         for(Category c: this.getCategories()) {
             if(c.equals(category)) {
                 for(Expense e: c.getExpenses()) {
                     if(e.equals(expense)) {
-                        c.removeExpense(e);
-                        removed = true;
+                        toRemove = e;
                     }
                 }
             }
         }
-        if(!removed) {
+        if(toRemove == null) {
             throw new DatabaseException("Expense does not exist");
+        } else {
+            category.getExpenses().remove(toRemove);
         }
     }
 
