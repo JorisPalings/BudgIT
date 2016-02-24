@@ -46,7 +46,6 @@ public class Category {
             throw new DomainException("Expense is null");
         }
         this.getExpenses().add(expense);
-        expense.setCategory(this);
     }
     
     public void removeExpense(Expense expense) {

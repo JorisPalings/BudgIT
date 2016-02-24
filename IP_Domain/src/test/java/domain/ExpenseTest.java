@@ -54,7 +54,6 @@ public class ExpenseTest {
     @Test
     public void Expense_3_args_maakt_Expense() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
-        assertEquals(expense.getCategory(), defaultCategory);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
     }
@@ -62,7 +61,6 @@ public class ExpenseTest {
     @Test
     public void Expense_3_args_maakt_Expense_met_MEDIUM() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
-        assertEquals(expense.getCategory(), defaultCategory);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
         assertEquals(expense.getPriority(), Priority.MEDIUM);
@@ -71,18 +69,12 @@ public class ExpenseTest {
     @Test
     public void Expense_4_args_maakt_Expense() {
         Expense expense = new Expense(defaultCategory, defaultName, defaultAmount, defaultPriority);
-        assertEquals(expense.getCategory(), defaultCategory);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
         assertEquals(expense.getPriority(), defaultPriority);
     }
 
     // Null checks
-    @Test (expected = DomainException.class)
-    public void Expense_3_args_gooit_exception_bij_categorie_null() {
-        Expense expense = new Expense(null, defaultName, defaultAmount);
-    }
-
     @Test (expected = DomainException.class)
     public void Expense_3_args_gooit_exception_bij_name_null() {
         Expense expense = new Expense(defaultCategory, null, 3.14);
@@ -106,12 +98,6 @@ public class ExpenseTest {
     @Test (expected = DomainException.class)
     public void Expense_4_args_gooit_exception_bij_priority_null() {
         Expense expense = new Expense(defaultCategory, null, 3.14, null);
-    }
-    
-    @Test (expected = DomainException.class)
-    public void setCategory_gooit_exception_bij_categorie_null() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
-        expense.setCategory(null);
     }
 
     @Test (expected = DomainException.class)
@@ -145,12 +131,6 @@ public class ExpenseTest {
     }
     
     // Setter functionality
-    @Test 
-    public void setCategory_verandert_categorie() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
-        expense.setCategory(differentCategory);
-        assertEquals(expense.getCategory(), differentCategory);
-    }
 
     @Test
     public void setName_verandert_naam() {
