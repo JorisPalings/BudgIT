@@ -59,6 +59,9 @@ public class Category {
     }
     
     public boolean contains(Expense expense) {
+        if(expense == null) {
+            throw new DomainException("Expense is null");
+        }
         boolean contains = false;
         for(Expense e: this.getExpenses()) {
             if(e.equals(expense)) {
