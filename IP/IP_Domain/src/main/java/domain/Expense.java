@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
  */
 public class Expense {
 
-    private Category category;
     private String name;
     private double amount;
     private Priority priority;
@@ -20,15 +19,10 @@ public class Expense {
     
     public Expense(Category category, String name, 
             double amount, Priority priority) {
-        this.setCategory(category);
         this.setName(name);
         this.setAmount(amount);
         this.setPriority(priority);
         this.setDateTime(LocalDateTime.now());
-    }
-
-    public Category getCategory() {
-        return this.category;
     }
 
     public String getName() {
@@ -45,13 +39,6 @@ public class Expense {
     
     public LocalDateTime getDateTime() {
         return this.dateTime;
-    }
-
-    public void setCategory(Category category) {
-        if(category == null) {
-            throw new DomainException("Category is null");
-        }
-        this.category = category;
     }
 
     public void setName(String name) {
