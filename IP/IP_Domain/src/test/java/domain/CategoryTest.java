@@ -24,7 +24,7 @@ public class CategoryTest {
         differentName = "Belastingen";
         defaultExpenses = new ArrayList<>();
         differentExpenses = new ArrayList<>();
-        defaultExpense = new Expense(new Category("Boodschappen"), "Toiletpapier", 3.14, Priority.TOP);
+        defaultExpense = new Expense("Toiletpapier", 3.14, Priority.TOP);
         differentExpenses.add(defaultExpense);
     }
         
