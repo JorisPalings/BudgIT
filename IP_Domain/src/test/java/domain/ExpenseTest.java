@@ -52,23 +52,23 @@ public class ExpenseTest {
        
     // Constructor functionality
     @Test
-    public void Expense_3_args_maakt_Expense() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+    public void Expense_2_args_maakt_Expense() {
+        Expense expense = new Expense(defaultName, defaultAmount);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
     }
     
     @Test
-    public void Expense_3_args_maakt_Expense_met_MEDIUM() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+    public void Expense_2_args_maakt_Expense_met_MEDIUM() {
+        Expense expense = new Expense(defaultName, defaultAmount);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
         assertEquals(expense.getPriority(), Priority.MEDIUM);
     }
     
     @Test
-    public void Expense_4_args_maakt_Expense() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount, defaultPriority);
+    public void Expense_3_args_maakt_Expense() {
+        Expense expense = new Expense(defaultName, defaultAmount, defaultPriority);
         assertEquals(expense.getName(), defaultName);
         assertEquals(expense.getAmount(), defaultAmount, 0.01);
         assertEquals(expense.getPriority(), defaultPriority);
@@ -76,91 +76,91 @@ public class ExpenseTest {
 
     // Null checks
     @Test (expected = DomainException.class)
-    public void Expense_3_args_gooit_exception_bij_name_null() {
-        Expense expense = new Expense(defaultCategory, null, 3.14);
+    public void Expense_2_args_gooit_exception_bij_name_null() {
+        Expense expense = new Expense(null, 3.14);
     }
 
     @Test (expected = DomainException.class)
-    public void Expense_3_args_gooit_exception_bij_name_lege_String() {
-        Expense expense = new Expense(defaultCategory, "", 3.14);
+    public void Expense_2_args_gooit_exception_bij_name_lege_String() {
+        Expense expense = new Expense("", 3.14);
     }
 
     @Test (expected = DomainException.class)
-    public void Expense_3_args_gooit_exception_bij_amount_negatief() {
-        Expense expense = new Expense(defaultCategory, null, -3.14);
+    public void Expense_2_args_gooit_exception_bij_amount_negatief() {
+        Expense expense = new Expense(null, -3.14);
     }
 
     @Test (expected = DomainException.class)
-    public void Expense_3_args_gooit_exception_bij_amount_nul() {
-        Expense expense = new Expense(defaultCategory, null, 0);
+    public void Expense_2_args_gooit_exception_bij_amount_nul() {
+        Expense expense = new Expense(null, 0);
     }
 
     @Test (expected = DomainException.class)
-    public void Expense_4_args_gooit_exception_bij_priority_null() {
-        Expense expense = new Expense(defaultCategory, null, 3.14, null);
+    public void Expense_3_args_gooit_exception_bij_priority_null() {
+        Expense expense = new Expense(null, 3.14, null);
     }
 
     @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_null() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setName(null);
     }
 
     @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_lege_String() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setName("");
     }
 
     @Test (expected = DomainException.class)
     public void setName_gooit_exception_bij_name_spaties() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setName("          ");
     }
 
     @Test (expected = DomainException.class)
     public void setAmount_gooit_exception_bij_amount_negatief() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setAmount(-3.14);
     }
 
     @Test (expected = DomainException.class)
     public void setAmount_gooit_exception_bij_amount_nul() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setAmount(0);
     }
 
     @Test (expected = DomainException.class)
     public void setPriority_gooit_exception_bij_priority_null() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setPriority(null);
     }
     
     // Setter functionality
     @Test
     public void setName_verandert_naam() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setName(differentName);
         assertEquals(expense.getName(), differentName);
     }
 
     @Test
     public void setAmount_verandert_amount() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setAmount(differentAmount);
         assertEquals(expense.getAmount(), differentAmount, 0.01);
     }
 
     @Test
     public void setPriority_verandert_priority() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount, defaultPriority);
+        Expense expense = new Expense(defaultName, defaultAmount, defaultPriority);
         expense.setPriority(differentPriority);
         assertEquals(expense.getPriority(), differentPriority);
     }
 
     @Test
     public void setDateTime_verandert_dateTime() {
-        Expense expense = new Expense(defaultCategory, defaultName, defaultAmount);
+        Expense expense = new Expense(defaultName, defaultAmount);
         expense.setDateTime(differentDateTime);
         assertEquals(expense.getDateTime(), differentDateTime);
     }

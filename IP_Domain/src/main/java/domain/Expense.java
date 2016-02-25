@@ -12,11 +12,11 @@ public class Expense {
     private Priority priority;
     private LocalDateTime dateTime;
 
-    public Expense(Category category, String name, double amount) {
-        this(category, name, amount, Priority.MEDIUM);
+    public Expense(String name, double amount) {
+        this(name, amount, Priority.MEDIUM);
     }
     
-    public Expense(Category category, String name, double amount, Priority priority) {
+    public Expense(String name, double amount, Priority priority) {
         this.setName(name);
         this.setAmount(amount);
         this.setPriority(priority);

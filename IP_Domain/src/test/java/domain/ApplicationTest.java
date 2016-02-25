@@ -30,8 +30,8 @@ public class ApplicationTest {
         differentApplication = null;
         defaultCategory = new Category("Transport");
         differentCategory = new Category("Belastingen");
-        defaultExpense = new Expense(defaultCategory, "Busabonnement", 3.14);
-        differentExpense = new Expense(differentCategory, "Water", 9001);
+        defaultExpense = new Expense("Busabonnement", 3.14);
+        differentExpense = new Expense("Water", 9001);
     }
     
     @After
@@ -297,8 +297,8 @@ public class ApplicationTest {
         defaultCategory.addExpense(defaultExpense);
         defaultCategory.addExpense(defaultExpense);
         defaultApplication.addCategory(defaultCategory);
-        assertTrue(defaultExpense.getAmount() * 2 
-                == defaultApplication.getCategoryTotal(defaultCategory));
+        assertEquals(defaultExpense.getAmount() * 2, 
+                defaultApplication.getCategoryTotal(defaultCategory), 0.01);
     }
     
     @Test
