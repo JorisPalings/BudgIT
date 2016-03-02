@@ -2,7 +2,7 @@ package domain;
 
 import database.Database;
 import database.DatabaseFactory;
-import java.util.HashSet;
+import java.util.Map;
 
 /**
  * @author Joris
@@ -20,7 +20,8 @@ public class Application {
         return this.database;
     }
     
-    public HashSet<Category> getCategories() {
+    // Categories
+    public Map<String, Category> getCategories() {
         return this.getDatabase().getCategories();
     }
     
@@ -36,6 +37,7 @@ public class Application {
         this.getDatabase().removeCategory(category);
     }
     
+    // Expenses
     public void addExpense(Expense expense, Category category) {
         this.getDatabase().addExpense(expense, category);
     }
@@ -60,11 +62,12 @@ public class Application {
         this.getDatabase().removeExpense(expense, category);
     }
     
+    // Other
     public boolean contains(Category category) {
         if(category == null) {
             throw new DomainException("Category is null");
         }
-        return this.getDatabase().getCategories().contains(category);
+        return this.getDatabase().getCategories().containsValue(category);
     }
     
     public boolean contains(Category category, Expense expense) {
@@ -86,7 +89,7 @@ public class Application {
     
     public double getTotal() {
         double total = 0;
-        for(Category c: this.getCategories()) {
+        for(Category c: this.getCategories().values()) {
             total += getCategoryTotal(c);
         }
         return total;
