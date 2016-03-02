@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Joris
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class Category {
     
     private String name;
-    private ArrayList<Expense> expenses;
+    private List<Expense> expenses;
 
     public Category(String name) {
         this(name, new ArrayList<>());
@@ -23,7 +24,7 @@ public class Category {
         return this.name;
     }
 
-    public ArrayList<Expense> getExpenses() {
+    public List<Expense> getExpenses() {
         return this.expenses;
     }
 

@@ -14,18 +14,18 @@ import org.junit.Test;
 /**
  * @author Joris
  */
-public class StubDatabaseTest {
+public class FakeDatabaseTest {
     
-    StubDatabase defaultDatabase;
-    StubDatabase differentDatabase;
+    FakeDatabase defaultDatabase;
+    FakeDatabase differentDatabase;
     Category defaultCategory;
     Category differentCategory;
     Expense defaultExpense;
     
     @Before
     public void setUp() {
-        defaultDatabase = new StubDatabase();
-        differentDatabase = new StubDatabase();
+        defaultDatabase = new FakeDatabase();
+        differentDatabase = new FakeDatabase();
         defaultCategory = new Category("Verzekeringen");
         differentCategory = new Category("Voeding");
         defaultExpense = new Expense("Omnium", 123.45);
@@ -180,7 +180,7 @@ public class StubDatabaseTest {
     @Test
     public void addCategory_voegt_categorie_toe_bij_geldige_category() {
         defaultDatabase.addCategory(defaultCategory);
-        assertTrue(defaultDatabase.getCategories().contains(defaultCategory));
+        assertTrue(defaultDatabase.getCategories().containsValue(defaultCategory));
     }
     
     @Test
@@ -194,7 +194,7 @@ public class StubDatabaseTest {
     public void removeCategory_verwijdert_categorie_bij_geldige_category() {
         defaultDatabase.addCategory(defaultCategory);
         defaultDatabase.removeCategory(defaultCategory);
-        assertFalse(defaultDatabase.getCategories().contains(defaultCategory));
+        assertFalse(defaultDatabase.getCategories().containsValue(defaultCategory));
     }
     
     @Test

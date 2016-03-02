@@ -3,7 +3,7 @@ package database;
 import domain.Category;
 import domain.Expense;
 import domain.Priority;
-import java.util.HashSet;
+import java.util.Map;
 
 /**
  * @author Joris
@@ -13,7 +13,7 @@ public class RelationalDatabase implements Database {
     public RelationalDatabase() {}
 
     @Override
-    public HashSet<Category> getCategories() {
+    public Map<String, Category> getCategories() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

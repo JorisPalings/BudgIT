@@ -3,21 +3,22 @@ package database;
 import domain.Category;
 import domain.Expense;
 import domain.Priority;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Joris
  */
-public class StubDatabase implements Database {
+public class FakeDatabase implements Database {
     
-    private HashSet<Category> categories;
+    private Map<String, Category> categories;
     
-    public StubDatabase() {
-        this.categories = new HashSet<>();
+    public FakeDatabase() {
+        this.categories = new HashMap<>();
     }
     
     @Override
-    public HashSet<Category> getCategories() {
+    public Map<String, Category> getCategories() {
         return this.categories;
     }
 
@@ -26,10 +27,10 @@ public class StubDatabase implements Database {
         if(category == null) {
             throw new DatabaseException("Category is null");
         }
-        if(this.getCategories().contains(category)) {
+        if(this.getCategories().containsValue(category)) {
             throw new DatabaseException("Category already exists");
         }
-        this.getCategories().add(category);
+        this.getCategories().put(category.getName(), category);
     }
     
     @Override
@@ -37,13 +38,11 @@ public class StubDatabase implements Database {
         if(category == null) {
             throw new DatabaseException("Category is null");
         }
-        if(!(this.getCategories().contains(category))) {
+        if(!(this.getCategories().containsValue(category))) {
             throw new DatabaseException("Category does not exist");
         }
-        for(Category c: this.getCategories()) {
-            if(c.getName().trim().equals(name)) {
-                throw new DatabaseException("Category with that name already exists");
-            }
+        if(this.getCategories().containsKey(name)) {
+            throw new DatabaseException("Category with that name already exists");
         }
         category.setName(name);
     }
@@ -53,10 +52,10 @@ public class StubDatabase implements Database {
         if(category == null) {
             throw new DatabaseException("Category is null");
         }
-        if(!this.getCategories().contains(category)) {
+        if(!this.getCategories().containsValue(category)) {
             throw new DatabaseException("Category does not exist");
         }
-        this.getCategories().remove(category);
+        this.getCategories().remove(category.getName());
     }
     
     @Override
@@ -82,7 +81,7 @@ public class StubDatabase implements Database {
             throw new DatabaseException("Category is null");
         }
         Category originalCategory = null;
-        for(Category c: this.getCategories()) {
+        for(Category c: this.getCategories().values()) {
             if(c.getExpenses().contains(expense)) {
                 originalCategory = c;
             }
@@ -124,7 +123,7 @@ public class StubDatabase implements Database {
             throw new DatabaseException("Category is null");
         }
         Expense toRemove = null;
-        for(Category c: this.getCategories()) {
+        for(Category c: this.getCategories().values()) {
             if(c.equals(category)) {
                 for(Expense e: c.getExpenses()) {
                     if(e.equals(expense)) {

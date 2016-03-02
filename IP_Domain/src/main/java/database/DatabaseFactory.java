@@ -12,7 +12,7 @@ public class DatabaseFactory {
         Database database = null;
         switch(databaseType) {
             case("Stub"):
-                    database = new StubDatabase();
+                    database = new FakeDatabase();
                     break;
             case("Relational"):
                     database = new RelationalDatabase();

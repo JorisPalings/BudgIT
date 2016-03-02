@@ -3,14 +3,14 @@ package database;
 import domain.Category;
 import domain.Expense;
 import domain.Priority;
-import java.util.HashSet;
+import java.util.Map;
 
 /**
  * @author Joris
  */
 public interface Database {
     
-    public HashSet<Category> getCategories();
+    public Map<String, Category> getCategories();
     
     public void addCategory(Category category);
     
