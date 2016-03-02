@@ -78,5 +78,12 @@ public class Category {
         }
         return total;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        return(o instanceof Category
+                && ((Category) o).getName().equals(this.getName())
+                && ((Category) o).getExpenses() == this.getExpenses());
+    }
 
 }

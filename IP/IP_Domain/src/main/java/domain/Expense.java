@@ -67,4 +67,13 @@ public class Expense {
         this.dateTime = dateTime;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        return(o instanceof Expense
+                && ((Expense) o).getName().equals(this.getName())
+                && ((Expense) o).getAmount() == this.getAmount()
+                && ((Expense) o).getPriority() == this.getPriority()
+                && ((Expense) o).getDateTime() == this.getDateTime());
+    }
+    
 }
