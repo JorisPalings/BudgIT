@@ -3,8 +3,8 @@ package database;
 import domain.Category;
 import domain.Expense;
 import domain.Priority;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author Joris
@@ -14,7 +14,9 @@ public class FakeDatabase implements Database {
     private Map<String, Category> categories;
     
     public FakeDatabase() {
-        this.categories = new HashMap<>();
+        this.categories = new TreeMap<>();
+        categories.put("ExampleCategory1", new Category("ExampleCategory1"));
+        categories.put("ExampleCategory2", new Category("ExampleCategory2"));
     }
     
     @Override

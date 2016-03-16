@@ -6,21 +6,21 @@ package database;
 public class DatabaseFactory {
     
     public Database createDatabase(String databaseType) {
-        if(databaseType == null || databaseType.trim().equals("")) {
-            throw new DatabaseException("DatabaseType is null or an empty String");
-        }
-        Database database = null;
+        Database db = null;
         switch(databaseType) {
-            case("Stub"):
-                    database = new FakeDatabase();
+            case("Fake"):
+                    db = new FakeDatabase();
                     break;
             case("Relational"):
-                    database = new RelationalDatabase();
+                    db = new RelationalDatabase();
                     break;
             default:
                     break;
         }
-        return database;
+        if(db == null) {
+            throw new DatabaseException("Invalid database type");
+        }
+        return db;
     }
 
 }

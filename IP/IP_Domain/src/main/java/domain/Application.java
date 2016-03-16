@@ -13,11 +13,11 @@ public class Application {
     
     public Application(String databaseType) {
         DatabaseFactory databaseFactory = new DatabaseFactory();
-        this.database = databaseFactory.createDatabase(databaseType);
+        database = databaseFactory.createDatabase(databaseType);
     }
     
     public Database getDatabase() {
-        return this.database;
+        return database;
     }
     
     // Categories
