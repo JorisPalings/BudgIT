@@ -26,7 +26,7 @@ public class ApplicationTest {
     
     @Before
     public void setUp() {
-        defaultApplication = new Application("Stub");
+        defaultApplication = new Application("Fake");
         differentApplication = null;
         defaultCategory = new Category("Transport");
         differentCategory = new Category("Belastingen");
@@ -47,7 +47,7 @@ public class ApplicationTest {
     // Constructor
     @Test
     public void Application_maakt_Application_bij_geldige_args() {
-        differentApplication = new Application("Stub");
+        differentApplication = new Application("Fake");
         assertTrue(differentApplication != null);
     }
     
