@@ -8,24 +8,51 @@ import java.util.List;
  */
 public class Category {
     
+    private int id;
+    private static int globalId = 0;
     private String name;
     private List<Expense> expenses;
+
+    public Category() {
+        this("New category");
+    }
 
     public Category(String name) {
         this(name, new ArrayList<>());
     }
 
     public Category(String name, ArrayList<Expense> expenses) {
+        this.setId(globalId ++);
         this.setName(name);
         this.setExpenses(expenses);
+    }
+    
+    public int getId() {
+        return this.id;
     }
 
     public String getName() {
         return this.name;
     }
+    
+    public Expense getExpense(int id) {
+        if(id < 0) {
+            throw new DomainException("Id is negative");
+        }
+        for(Expense e: this.getExpenses()) {
+            if(e.getId() == id) {
+                return e;
+            }
+        }
+        throw new DomainException("No expense with that id");
+    }
 
     public List<Expense> getExpenses() {
         return this.expenses;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -83,6 +110,7 @@ public class Category {
     @Override
     public boolean equals(Object o) {
         return(o instanceof Category
+                && ((Category) o).getId() == this.getId()
                 && ((Category) o).getName().equals(this.getName())
                 && ((Category) o).getExpenses() == this.getExpenses());
     }

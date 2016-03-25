@@ -21,7 +21,19 @@ public class Application {
     }
     
     // Categories
-    public Map<String, Category> getCategories() {
+    public Category getCategory(int id) {
+        if(id < 0) {
+            throw new DomainException("Id is negative");
+        }
+        for(Category c: this.getCategories().values()) {
+            if(c.getId() == id) {
+                return c;
+            }
+        }
+        throw new DomainException("No category with that id");
+    }
+    
+    public Map<Integer, Category> getCategories() {
         return this.getDatabase().getCategories();
     }
     

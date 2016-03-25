@@ -7,22 +7,33 @@ import java.time.LocalDateTime;
  */
 public class Expense {
 
+    private int id;
+    private static int globalId = 0;
     private String name;
     private double amount;
     private Priority priority;
     private LocalDateTime dateTime;
+    
+    public Expense() {
+        this("New expense", 999.99);
+    }
 
     public Expense(String name, double amount) {
         this(name, amount, Priority.MEDIUM);
     }
     
     public Expense(String name, double amount, Priority priority) {
+        this.setId(globalId ++);
         this.setName(name);
         this.setAmount(amount);
         this.setPriority(priority);
         this.setDateTime(LocalDateTime.now());
     }
 
+    public int getId() {
+        return this.id;
+    }
+    
     public String getName() {
         return this.name;
     }
@@ -37,6 +48,10 @@ public class Expense {
     
     public LocalDateTime getDateTime() {
         return this.dateTime;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -70,6 +85,7 @@ public class Expense {
     @Override
     public boolean equals(Object o) {
         return(o instanceof Expense
+                && ((Expense) o).getId() == this.getId()
                 && ((Expense) o).getName().equals(this.getName())
                 && ((Expense) o).getAmount() == this.getAmount()
                 && ((Expense) o).getPriority() == this.getPriority()

@@ -13,7 +13,7 @@ public class RelationalDatabase implements Database {
     public RelationalDatabase() {}
 
     @Override
-    public Map<String, Category> getCategories() {
+    public Map<Integer, Category> getCategories() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
