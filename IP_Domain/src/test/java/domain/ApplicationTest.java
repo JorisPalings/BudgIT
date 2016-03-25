@@ -304,13 +304,17 @@ public class ApplicationTest {
     @Test
     public void getTotal_geeft_correct_totaal() {
         defaultCategory.addExpense(defaultExpense);
-        defaultApplication.addCategory(defaultCategory);
-        
         differentCategory.addExpense(differentExpense);
+        
+        defaultApplication.addCategory(defaultCategory);
         defaultApplication.addCategory(differentCategory);
         
-        assertEquals(defaultCategory.getTotal() + differentCategory.getTotal(),
-                defaultApplication.getTotal(), 0.01);
+        double total = 0;
+        for(Category c: defaultApplication.getCategories().values()) {
+            total += c.getTotal();
+        }
+        
+        assertEquals(defaultApplication.getTotal(), total, 0.01);
     }
     
 }
