@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface Database {
     
-    public Map<String, Category> getCategories();
+    public Map<Integer, Category> getCategories();
     
     public void addCategory(Category category);
     

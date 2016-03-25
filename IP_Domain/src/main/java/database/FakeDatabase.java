@@ -11,16 +11,19 @@ import java.util.TreeMap;
  */
 public class FakeDatabase implements Database {
     
-    private Map<String, Category> categories;
+    private Map<Integer, Category> categories;
     
     public FakeDatabase() {
         this.categories = new TreeMap<>();
-        categories.put("ExampleCategory1", new Category("ExampleCategory1"));
-        categories.put("ExampleCategory2", new Category("ExampleCategory2"));
+        categories.put(1, new Category("ExampleCategory1"));
+        categories.get(1).addExpense(new Expense("ExampleExpense1", 9001));
+        categories.get(1).addExpense(new Expense("ExampleExpense2", 666));
+        categories.put(2, new Category("ExampleCategory2"));
+        categories.get(2).addExpense(new Expense("ExampleExpense3", 123.45));
     }
     
     @Override
-    public Map<String, Category> getCategories() {
+    public Map<Integer, Category> getCategories() {
         return this.categories;
     }
 
@@ -32,7 +35,7 @@ public class FakeDatabase implements Database {
         if(this.getCategories().containsValue(category)) {
             throw new DatabaseException("Category already exists");
         }
-        this.getCategories().put(category.getName(), category);
+        this.getCategories().put(category.getId(), category);
     }
     
     @Override
@@ -43,8 +46,10 @@ public class FakeDatabase implements Database {
         if(!(this.getCategories().containsValue(category))) {
             throw new DatabaseException("Category does not exist");
         }
-        if(this.getCategories().containsKey(name)) {
-            throw new DatabaseException("Category with that name already exists");
+        for(Category c: this.getCategories().values()) {
+            if(c.getName().equals(name)) {
+                throw new DatabaseException("Category with that name already exists");
+            }
         }
         category.setName(name);
     }
@@ -57,7 +62,7 @@ public class FakeDatabase implements Database {
         if(!this.getCategories().containsValue(category)) {
             throw new DatabaseException("Category does not exist");
         }
-        this.getCategories().remove(category.getName());
+        this.getCategories().remove(category.getId());
     }
     
     @Override
