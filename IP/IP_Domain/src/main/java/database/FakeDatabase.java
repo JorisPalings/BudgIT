@@ -15,11 +15,11 @@ public class FakeDatabase implements Database {
     
     public FakeDatabase() {
         this.categories = new TreeMap<>();
-        categories.put(1, new Category("ExampleCategory1"));
-        categories.get(1).addExpense(new Expense("ExampleExpense1", 9001));
-        categories.get(1).addExpense(new Expense("ExampleExpense2", 666));
-        categories.put(2, new Category("ExampleCategory2"));
-        categories.get(2).addExpense(new Expense("ExampleExpense3", 123.45));
+        categories.put(0, new Category("ExampleCategory1"));
+        categories.get(0).addExpense(new Expense("ExampleExpense1", 9001));
+        categories.get(0).addExpense(new Expense("ExampleExpense2", 666));
+        categories.put(1, new Category("ExampleCategory2"));
+        categories.get(1).addExpense(new Expense("ExampleExpense3", 123.45));
     }
     
     @Override
