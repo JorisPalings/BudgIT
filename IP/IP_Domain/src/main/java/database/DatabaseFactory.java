@@ -8,17 +8,17 @@ public class DatabaseFactory {
     public Database createDatabase(String databaseType) {
         Database db = null;
         switch(databaseType) {
-            case("Fake"):
-                    db = new FakeDatabase();
-                    break;
+            case("Memory"):
+                db = new MemoryDatabase();
+                break;
             case("Relational"):
-                    db = new RelationalDatabase();
-                    break;
+                db = new RelationalDatabase("CategoryPU");
+                break;
             default:
-                    break;
+                break;
         }
         if(db == null) {
-            throw new DatabaseException("Invalid database type");
+            throw new DatabaseException("Invalid database type '" + databaseType + "'");
         }
         return db;
     }

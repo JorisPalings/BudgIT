@@ -1,21 +1,37 @@
 package domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * @author Joris
  */
-public class Expense {
+@Entity
+public class Expense implements Serializable {
 
+    @Id @GeneratedValue
     private int id;
-    private static int globalId = 0;
+    
+    @NotNull(message="{error.NameNotNull}") @NotBlank(message="{error.NameNotNull}")
     private String name;
-    private double amount;
+    
+    @DecimalMin(value="0.01", message="{error.AmountNotNegativeOrZero}")
+    private Double amount;
+
+    @NotNull(message="{error.PriorityNotNull}")
     private Priority priority;
+    
+    @NotNull(message="{error.DateTimeNotNull}")
     private LocalDateTime dateTime;
     
     public Expense() {
-        this("New expense", 999.99);
+        this("New expense", 0.01);
     }
 
     public Expense(String name, double amount) {
@@ -23,7 +39,7 @@ public class Expense {
     }
     
     public Expense(String name, double amount, Priority priority) {
-        this.setId(globalId ++);
+        this.setId(id);
         this.setName(name);
         this.setAmount(amount);
         this.setPriority(priority);
@@ -55,30 +71,18 @@ public class Expense {
     }
 
     public void setName(String name) {
-        if(name == null || name.trim().equals("")) {
-            throw new DomainException("Name is null or an empty String");
-        }
         this.name = name;
     }
 
     public void setAmount(double amount) {
-        if(amount <= 0) {
-            throw new DomainException("Amount is negative or zero");
-        }
         this.amount = amount;
     }
     
     public void setPriority(Priority priority) {
-        if(priority == null) {
-            throw new DomainException("Priority is null");
-        }
         this.priority = priority;
     }
     
     public void setDateTime(LocalDateTime dateTime) {
-        if(dateTime == null) {
-            throw new DomainException("DateTime is null");
-        }
         this.dateTime = dateTime;
     }
     

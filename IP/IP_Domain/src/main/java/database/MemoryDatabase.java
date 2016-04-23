@@ -9,18 +9,18 @@ import java.util.TreeMap;
 /**
  * @author Joris
  */
-public class FakeDatabase implements Database {
+public class MemoryDatabase implements Database {
     
     private Map<Integer, Category> categories;
     
-    public FakeDatabase() {
+    private static int id = 0;
+    
+    public MemoryDatabase() {
         this.categories = new TreeMap<>();
-        categories.put(0, new Category("ExampleCategory1"));
-        categories.get(0).addExpense(new Expense("ExampleExpense1", 9001));
-        categories.get(0).addExpense(new Expense("ExampleExpense2", 666));
-        categories.put(1, new Category("ExampleCategory2"));
-        categories.get(1).addExpense(new Expense("ExampleExpense3", 123.45));
     }
+    
+    @Override
+    public void closeConnection() {}
     
     @Override
     public Map<Integer, Category> getCategories() {
@@ -35,7 +35,9 @@ public class FakeDatabase implements Database {
         if(this.getCategories().containsValue(category)) {
             throw new DatabaseException("Category already exists");
         }
-        this.getCategories().put(category.getId(), category);
+        category.setId(id);
+        this.getCategories().put(id, category);
+        id ++;
     }
     
     @Override

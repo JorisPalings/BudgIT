@@ -2,15 +2,27 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * @author Joris
  */
+@Entity
 public class Category {
-    
+   
+    @Id @GeneratedValue
     private int id;
-    private static int globalId = 0;
+
+    @NotNull(message="{error.NameNotNull}") @NotBlank(message="{error.NameNotNull}")
     private String name;
+
+    @OneToMany(cascade = CascadeType.PERSIST) @NotNull(message="{error.ExpensesNotNull}")
     private List<Expense> expenses;
 
     public Category() {
@@ -22,7 +34,7 @@ public class Category {
     }
 
     public Category(String name, ArrayList<Expense> expenses) {
-        this.setId(globalId ++);
+        this.setId(id);
         this.setName(name);
         this.setExpenses(expenses);
     }
@@ -36,9 +48,6 @@ public class Category {
     }
     
     public Expense getExpense(int id) {
-        if(id < 0) {
-            throw new DomainException("Id is negative");
-        }
         for(Expense e: this.getExpenses()) {
             if(e.getId() == id) {
                 return e;
@@ -56,9 +65,6 @@ public class Category {
     }
 
     public void setName(String name) {
-        if(name == null || name.trim().equals("")) {
-            throw new DomainException("Name is null");
-        }
         this.name = name;
     }
 
