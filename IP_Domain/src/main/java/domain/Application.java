@@ -16,6 +16,10 @@ public class Application {
         database = databaseFactory.createDatabase(databaseType);
     }
     
+    public void closeConnection() {
+        database.closeConnection();
+    }
+    
     public Database getDatabase() {
         return database;
     }
