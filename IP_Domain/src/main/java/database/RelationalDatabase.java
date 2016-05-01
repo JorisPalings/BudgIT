@@ -103,6 +103,7 @@ public class RelationalDatabase implements Database {
     @Override
     public void changeExpenseCategory(Expense expense, Category category) {
         throw new UnsupportedOperationException("Not supported yet.4"); //To change body of generated methods, choose Tools | Templates.
+        //merge
     }
 
     @Override
@@ -148,6 +149,7 @@ public class RelationalDatabase implements Database {
     @Override
     public void removeExpense(Expense expense, Category category) {
         throw new UnsupportedOperationException("Not supported yet.8"); //To change body of generated methods, choose Tools | Templates.
+        //update>delete
     }
 
 }

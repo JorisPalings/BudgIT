@@ -2,6 +2,7 @@ package domain;
 
 import database.Database;
 import database.DatabaseFactory;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -14,6 +15,12 @@ public class Application {
     public Application(String databaseType) {
         DatabaseFactory databaseFactory = new DatabaseFactory();
         database = databaseFactory.createDatabase(databaseType);
+        
+        database.addCategory(new Category("JSONTestCategory#0", new ArrayList<>()));
+        database.addExpense(new Expense("JSONTestExpense#0", 1337, Priority.TOP), getCategory(0));
+        database.addCategory(new Category("JSONTestCategory#1", new ArrayList<>()));
+        database.addCategory(new Category("JSONTestCategory#2", new ArrayList<>()));
+        database.addExpense(new Expense("JSONTestExpense#0", 123.45, Priority.HIGH), getCategory(2));
     }
     
     public void closeConnection() {
@@ -27,14 +34,14 @@ public class Application {
     // Categories
     public Category getCategory(int id) {
         if(id < 0) {
-            throw new DomainException("Id is negative");
+            return null;
         }
         for(Category c: this.getCategories().values()) {
             if(c.getId() == id) {
                 return c;
             }
         }
-        throw new DomainException("No category with that id");
+        return null;
     }
     
     public Map<Integer, Category> getCategories() {
