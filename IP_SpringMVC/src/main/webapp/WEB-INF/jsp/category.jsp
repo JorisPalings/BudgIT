@@ -31,7 +31,7 @@
                 <h2 class="toggleable">
                     ${expense.name}
                 </h2>
-                <ul>
+                <ul class="expense">
                     <li class="amount">
                         ${expense.amount}
                     </li>

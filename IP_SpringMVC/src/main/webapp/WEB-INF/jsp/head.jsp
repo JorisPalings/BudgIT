@@ -10,6 +10,5 @@
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js' />"></script>
     <script src="<c:url value='/js/dateTime.js' />"></script>
     <script src="<c:url value='/js/lang.js' />"></script>
-    <script src="<c:url value='/js/nav.js' />"></script>
     <script src="<c:url value='/js/toggle.js' />"></script>
 </head>

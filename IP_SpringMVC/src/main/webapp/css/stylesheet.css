@@ -301,17 +301,34 @@ main section:last-of-type dl dt {
     padding: 0;
 }
 
-main section ul li {
+main section ul.expense li {
     padding: .5rem 0 .5rem 2rem;
 }
 
-main section ul li:nth-child(2) {
+main section ul.expense li:nth-child(2) {
     background: #f6f7f9;
     text-transform: lowercase;
 }
 
-main section ul li:nth-child(2):first-letter {
+main section ul.expense li:nth-child(2):first-letter {
     text-transform: capitalize;
+}
+
+main section ul.rates {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+main section ul.rates li {
+    padding: .5rem 0 .5rem 2rem;
+}
+
+main section ul.rates li:first-of-type {
+    font-weight: 700;
+}
+
+main section ul.rates li:nth-of-type(even) {
+    background: #f6f7f9;
 }
 
 /* Footer */
