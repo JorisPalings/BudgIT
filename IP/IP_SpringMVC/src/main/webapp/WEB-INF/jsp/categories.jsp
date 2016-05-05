@@ -15,7 +15,6 @@
     <jsp:include page="nav.jsp" />
     <main>
         <a class="button specialButton" href="<c:url value='/categories/new.htm' />"><spring:message code='button.AddNewCategory' /></a>
-        </form>
         <c:forEach var="category" items="${application.categories}">
             <section>
                 <a href="<c:url value='/categories/${category.value.id}/delete.htm' />">

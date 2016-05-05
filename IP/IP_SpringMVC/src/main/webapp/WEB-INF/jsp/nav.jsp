@@ -11,6 +11,10 @@
             <a href="<c:url value='/categories.htm' />">
                 <spring:message code="title.Overview" />
             </a>
+        </li><li>
+            <a href="<c:url value='/rates.htm' />">
+                <spring:message code="title.Rates" />
+            </a>
         </li>
     </ul>
 </nav>
