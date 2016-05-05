@@ -4,6 +4,7 @@ import database.Database;
 import database.DatabaseFactory;
 import java.util.ArrayList;
 import java.util.Map;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author Joris
@@ -11,6 +12,7 @@ import java.util.Map;
 public class Application {
     
     private Database database;
+    private ExchangeRates exchangeRates;
     
     public Application(String databaseType) {
         DatabaseFactory databaseFactory = new DatabaseFactory();
@@ -116,6 +118,13 @@ public class Application {
             total += getCategoryTotal(c);
         }
         return total;
+    }
+    
+    public static ExchangeRates getExchangeRates() {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://api.fixer.io/latest";
+        ExchangeRates response = restTemplate.getForObject(url, ExchangeRates.class);
+        return response;
     }
 
 }
