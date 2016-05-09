@@ -163,6 +163,7 @@
     </dependencies>
 
     <build>
+        <finalName>IP_SpringMVC</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
