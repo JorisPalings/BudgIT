@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class CategoryRestController {
     }
     
     // GET all categories
+    @CrossOrigin
     @RequestMapping(value="/categories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Integer, Category>> getCategories(){
         if(application.getCategories().isEmpty()) {
@@ -40,6 +42,7 @@ public class CategoryRestController {
     }
     
     // GET category catId
+    @CrossOrigin
     @RequestMapping(value="/categories/{catId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Category> getCategory(@PathVariable int catId) {
         Category category = application.getCategory(catId);
@@ -50,6 +53,7 @@ public class CategoryRestController {
     }
     
     // POST category
+    @CrossOrigin
     @RequestMapping(value="/categories", method = RequestMethod.POST)
     public ResponseEntity<Void> addCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
         if(application.contains(category)) {
@@ -62,6 +66,7 @@ public class CategoryRestController {
     }    
     
     // UPDATE category catId
+    @CrossOrigin
     @RequestMapping(value="/categories/{catId}", method = RequestMethod.PUT)
     public ResponseEntity<Category> getCategory(@PathVariable int catId, @RequestBody Category category) {
         Category currentCategory = application.getCategory(catId);
@@ -73,6 +78,7 @@ public class CategoryRestController {
     }
     
     // DELETE category catId
+    @CrossOrigin
     @RequestMapping(value="/categories/{catId}", method = RequestMethod.DELETE)
     public ResponseEntity<Category> deleteCategory(@PathVariable int catId) {
         Category category = application.getCategory(catId);
