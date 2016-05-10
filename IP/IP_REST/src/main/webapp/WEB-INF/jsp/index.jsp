@@ -14,7 +14,7 @@
                 URL:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories">localhost:8080/IP_REST/categories</a>
+            	<a href="/IP_REST/categories">/IP_REST/categories</a>
             </dd>
             <dt>
                 Method:
@@ -38,7 +38,7 @@
                 Example:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories">localhost:8080/IP_REST/categories</a>
+            	<a href="/IP_REST/categories">/IP_REST/categories</a>
             </dd>
         </dl>
 
@@ -48,7 +48,7 @@
                 URL:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories/{id}">localhost:8080/IP_REST/categories/{id}</a>
+            	<a href="/IP_REST/categories/{id}">/IP_REST/categories/{id}</a>
             </dd>
             <dt>
                 Method:
@@ -72,7 +72,7 @@
                 Example:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories/0">localhost:8080/IP_REST/categories/0</a>
+            	<a href="/IP_REST/categories/0">/IP_REST/categories/0</a>
             </dd>
         </dl>
 
@@ -82,7 +82,7 @@
                 URL:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories">localhost:8080/IP_REST/categories</a>
+            	<a href="/IP_REST/categories">/IP_REST/categories</a>
             </dd>
             <dt>
                 Method:
@@ -111,7 +111,7 @@
                 		URL:
                 	</dt>
                 	<dd>
-                		<a href="localhost:8080/IP_REST/categories">localhost:8080/IP_REST/categories</a>
+                		<a href="/IP_REST/categories">/IP_REST/categories</a>
                 	</dd>
                 	<dt>
                 		Body:
@@ -133,7 +133,7 @@
                 URL:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories/{id}">localhost:8080/IP_REST/categories/{id}</a>
+            	<a href="/IP_REST/categories/{id}">/IP_REST/categories/{id}</a>
             </dd>
             <dt>
                 Method:
@@ -162,7 +162,7 @@
                 		URL:
                 	</dt>
                 	<dd>
-                		<a href="localhost:8080/IP_REST/categories/0">localhost:8080/IP_REST/categories/0</a>
+                		<a href="/IP_REST/categories/0">/IP_REST/categories/0</a>
                 	</dd>
                 	<dt>
                 		Body:
@@ -184,7 +184,7 @@
                 URL:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories/{id}">localhost:8080/IP_REST/categories/{id}</a>
+            	<a href="/IP_REST/categories/{id}">/IP_REST/categories/{id}</a>
             </dd>
             <dt>
                 Method:
@@ -208,7 +208,7 @@
                 Example:
             </dt>
             <dd>
-            	<a href="localhost:8080/IP_REST/categories/0">localhost:8080/IP_REST/categories/0</a>
+            	<a href="/IP_REST/categories/0">/IP_REST/categories/0</a>
             </dd>
         </dl>
     </body>
