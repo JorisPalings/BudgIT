@@ -18,7 +18,7 @@ public class ExchangeRateController {
     
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getExchangeRates() {
-        return new ModelAndView("rates", "exchangeRates", Application.getExchangeRates());
+        return new ModelAndView("rates", "exchangeRates", application.getExchangeRates());
     }
 
 }

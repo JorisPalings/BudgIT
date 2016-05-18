@@ -15,7 +15,7 @@
     <main>
         <section>
             <h2>
-                Today's exchange rates
+                <spring:message code="info.TodaysRates" />
             </h2>
             <ul class="rates">
                 <li>
