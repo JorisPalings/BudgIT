@@ -17,12 +17,6 @@ public class Application {
     public Application(String databaseType) {
         DatabaseFactory databaseFactory = new DatabaseFactory();
         database = databaseFactory.createDatabase(databaseType);
-        
-        database.addCategory(new Category("JSONTestCategory#0", new ArrayList<>()));
-        database.addExpense(new Expense("JSONTestExpense#0", 1337, Priority.TOP), getCategory(0));
-        database.addCategory(new Category("JSONTestCategory#1", new ArrayList<>()));
-        database.addCategory(new Category("JSONTestCategory#2", new ArrayList<>()));
-        database.addExpense(new Expense("JSONTestExpense#0", 123.45, Priority.HIGH), getCategory(2));
     }
     
     public void closeConnection() {
@@ -120,7 +114,7 @@ public class Application {
         return total;
     }
     
-    public static ExchangeRates getExchangeRates() {
+    public ExchangeRates getExchangeRates() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://api.fixer.io/latest";
         ExchangeRates response = restTemplate.getForObject(url, ExchangeRates.class);

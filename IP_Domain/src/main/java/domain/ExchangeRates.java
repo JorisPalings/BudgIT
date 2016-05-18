@@ -2,7 +2,6 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * @author Joris
