@@ -29,7 +29,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     
     @Bean
     public Application application() {
-        return new Application("Memory");
+        return new Application("Relational");
     }
     
     @Override
