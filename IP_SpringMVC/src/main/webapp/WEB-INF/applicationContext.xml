@@ -10,7 +10,7 @@
 
     <bean id="application" class="domain.Application" destroy-method="closeConnection">
         <constructor-arg>
-            <value>Memory</value>
+            <value>Relational</value>
         </constructor-arg>
     </bean>    
 
