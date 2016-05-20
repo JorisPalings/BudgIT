@@ -45,7 +45,7 @@ public class RelationalDatabase implements Database {
             }
             return categoryMap;
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: getCategories" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: getCategories: " + e.getMessage(), e);
         }
     }
 
@@ -57,7 +57,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: addCategory" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: addCategory: " + e.getMessage(), e);
         }
     }
 
@@ -70,7 +70,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: changeCategoryName" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: changeCategoryName: " + e.getMessage(), e);
         }
     }
 
@@ -82,7 +82,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: removeCategory" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: removeCategory: " + e.getMessage(), e);
         }
     }
 
@@ -95,7 +95,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: addExpense" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: addExpense: " + e.getMessage(), e);
         }
     }
 
@@ -115,7 +115,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: changeExpenseName" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: changeExpenseName: " + e.getMessage(), e);
         }
     }
 
@@ -128,7 +128,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: changeExpenseAmount" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: changeExpenseAmount: " + e.getMessage(), e);
         }
     }
 
@@ -141,7 +141,7 @@ public class RelationalDatabase implements Database {
             manager.flush();
             manager.getTransaction().commit();
         } catch(Exception e) {
-            throw new DatabaseException("RelationalDatabase: changeExpensePriority" + e.getMessage(), e);
+            throw new DatabaseException("RelationalDatabase: changeExpensePriority: " + e.getMessage(), e);
         }
     }
 
