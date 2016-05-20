@@ -72,7 +72,7 @@
                 Example:
             </dt>
             <dd>
-            	<a href="/IP_REST/categories/0">/IP_REST/categories/0</a>
+            	<a href="/IP_REST/categories/0">/IP_REST/categories/1</a>
             </dd>
         </dl>
 
