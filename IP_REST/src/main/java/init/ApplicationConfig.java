@@ -27,7 +27,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 public class ApplicationConfig extends WebMvcConfigurerAdapter {
     
-    @Bean
+    @Bean(destroyMethod="closeConnection")
     public Application application() {
         return new Application("Relational");
     }
