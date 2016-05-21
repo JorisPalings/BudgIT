@@ -1,0 +1,323 @@
+/* Eric Meyer reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* General */
+html {
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+/* Header */
+header {
+    background: #f57c00;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 
+        0 3px 6px rgba(0, 0, 0, 0.23);
+    padding: 2rem calc(21.6447% + 2rem);
+}
+
+header h1 {
+    color: #fff;
+    float: left;
+    font-size: 3rem;
+}
+
+/* Nav */
+nav {
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 
+        0 3px 6px rgba(0, 0, 0, .23);
+    box-sizing: border-box;
+    margin: 1rem 0;
+    padding: 0 21.6447%;
+}
+
+nav ul {
+    width: 100%;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    background: #fff;
+    box-sizing: border-box;
+    color: #000;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    padding: .75rem 2rem;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+nav ul li a:hover {
+    background: #f57c00;
+    color: #fff;
+}
+
+/* Main */
+main {
+    background: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 
+        0 3px 6px rgba(0, 0, 0, .23);
+    flex-grow: 1;
+    margin: 0 21.6447%;
+    padding: 2rem;
+    position: relative;
+    width: 56.7106%;
+}
+
+main a.button {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 
+        0 1px 2px rgba(0, 0, 0, .24);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 2.5rem;
+    margin: 0 .75rem 1.5rem 0;
+    padding: 0 2rem;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+main a.actionButton {
+    background: #42bc8c;
+}
+
+main a.actionButton:hover {
+    background: #26a172;
+}
+
+main a.regularButton {
+    background: #868e98;
+}
+
+main a.regularButton:hover {
+    background: #677180;
+}
+
+main a.specialButton {
+    background: #f57c00;
+}
+
+main a.specialButton:hover {
+    background: #264e86;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+/* Form */
+main form .error {
+    background: #fbe8e5;
+    border: 1px solid #ec4e32;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    padding: 1rem 2rem;
+}
+
+main form label {
+    display: block;
+    line-height: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+main form input, main form select {
+    border: 1px solid #b7bcc2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    transition: all .25s ease;
+    vertical-align: middle;
+}
+
+main form select {
+    padding: .5rem 1rem;
+}
+
+main form input[type=submit] {
+    background: #42bc8c;
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 
+        0 1px 2px rgba(0, 0, 0, .24);
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    margin: 0 .75rem 1.5rem 0;
+    padding: 0 2rem;
+}
+
+main form input[type=submit]:hover {
+    background: #26a172;
+}
+
+/* Section */
+main section {
+    margin-bottom: 2rem;
+}
+
+main section:last-child {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main section:last-child dl dt {
+    width: calc(100% - 10rem);
+}
+
+main section:last-child dl dd {
+    width: 10rem;
+}
+
+main section h2 {
+    border-bottom: 1px solid #7fa6df;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+main section img.options {
+    cursor: pointer;
+    float: right;
+    margin: .75rem 0 0 .5rem;
+    transition: all .25s ease;
+    width: 1rem;
+}
+
+main section img.options:hover {
+    transform: scale(1.25, 1.25);
+}
+
+main section dl dt {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: .5rem 0 .5rem 2rem;
+    width: calc(100% - 8rem);
+}
+
+main section dl dd {
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    padding: .5rem 2rem .5rem 0;
+    text-align: right;
+    width: 8rem;
+}
+
+main section dl dd:nth-of-type(even),
+main section dl dt:nth-of-type(even){
+    background: #f6f7f9;
+}
+
+main section dl dd:last-of-type, 
+main section dl dt:last-of-type {
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+main section:last-of-type dl dd,
+main section:last-of-type dl dt {
+    padding: 0;
+}
+
+/* Footer */
+footer {
+    background: #3b629b;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 
+        0 3px 6px rgba(0, 0, 0, .23);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    margin: 1rem 0 0;
+    padding: .75rem calc(21.6447% + 2rem);
+}
+
+footer p {
+    float: left;
+    opacity: .75;
+}
+
+footer select {
+    background: #3b629b;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    opacity: .75;
+}
