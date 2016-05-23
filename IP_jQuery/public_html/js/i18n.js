@@ -3,6 +3,10 @@
 // Don't start translating until the page is loaded
 $(document).ready(function() {
     
+    if(Cookies.get("lang") === undefined) {
+        Cookies.set("lang", "en");
+    }
+    
     // Set all Strings to the language in the "lang" cookie
     jQuery.i18n.properties({
         // Properties file name
