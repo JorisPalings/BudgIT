@@ -1,7 +1,6 @@
 $(document).ready(function() {
     
-    $("a.rest").click(function(event) {
-        alert();
+    $(document).on("click", "a.rest", function(event) {
         event.preventDefault();
         var url = $(this).attr("href");
         $.ajax({
