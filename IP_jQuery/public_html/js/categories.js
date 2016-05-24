@@ -38,7 +38,7 @@ $(document).ready(function() {
         async: true,
         callback: function() {
             var lang = Cookies.get("lang");
-            $("dt:last-of-type").text(info_Total);
+            $("dt:last-of-type").text(info_CategoryTotal);
         }
     });
     
