@@ -78,7 +78,7 @@ public class CategoryRestController {
     }
     
     // DELETE category catId
-    @CrossOrigin
+    @CrossOrigin(methods = RequestMethod.DELETE)
     @RequestMapping(value="/categories/{catId}", method = RequestMethod.DELETE)
     public ResponseEntity<Category> deleteCategory(@PathVariable int catId) {
         Category category = application.getCategory(catId);
