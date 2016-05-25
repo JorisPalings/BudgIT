@@ -39,6 +39,7 @@ $(document).ready(function() {
         callback: function() {
             var lang = Cookies.get("lang");
             $("dt:last-of-type").text(info_CategoryTotal);
+            $("section:last-of-type dt").text(info_Total);
         }
     });
     
