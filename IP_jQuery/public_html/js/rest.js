@@ -7,7 +7,7 @@ $(document).ready(function() {
             url: url,
             type: 'DELETE',
             success: function() {
-                alert("Category deleted.");
+                location.reload();
             }
         });
     })
