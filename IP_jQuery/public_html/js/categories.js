@@ -6,7 +6,7 @@ $(document).ready(function() {
         $.each(data, function() {
             $("main").append("<section>");
             var newestSection = $("main section:last-of-type");
-            newestSection.append("<a class='rest' href='/IP_SpringMVC/categories/" + this.id + "'><img class='options' src='images/delete.png' alt='Delete'></a>");
+            newestSection.append("<a class='rest' href='/IP_REST/categories/" + this.id + "'><img class='options' src='images/delete.png' alt='Delete'></a>");
             //newestSection.append("<a class='rest' href='/IP_SpringMVC/categories/0/edit.htm'><img class='options' src='images/edit.png' alt='Edit'></a>");
             //newestSection.append("<a class='rest' href='/IP_SpringMVC/categories/0/expenses/new.htm'><img class='options' src='images/add.png' alt='Add'></a>");
             //newestSection.append("<a class='rest' href='/IP_SpringMVC/categories/0/expenses/view.htm'><img class='options' src='images/view.png' alt='View'></a>");
