@@ -293,7 +293,7 @@ main section:last-of-type dl dt {
 
 /* Footer */
 footer {
-    background: #3b629b;
+    background: #f57c00;
     box-sizing: border-box;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 
         0 3px 6px rgba(0, 0, 0, .23);
@@ -311,13 +311,14 @@ footer p {
 }
 
 footer select {
-    background: #3b629b;
     border: 0;
-    color: #fff;
     cursor: pointer;
     float: right;
     font-family: 'Montserrat', sans-serif;
     font-size: .75rem;
     letter-spacing: 1px;
-    opacity: .75;
+    margin: 1rem;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
