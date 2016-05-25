@@ -34,13 +34,6 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     }
     
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedMethods("GET", "POST", "PUT", "UPDATE", "DELETE")
-                .allowedHeaders("Content-Type,X-Requested-With,accept,authorization,Origin,Access-Control-Request-Method,Access-Control-Request-Headers");
-    }
-    
-    @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
