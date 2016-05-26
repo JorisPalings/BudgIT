@@ -2,7 +2,6 @@ package domain;
 
 import database.Database;
 import database.DatabaseFactory;
-import java.util.ArrayList;
 import java.util.Map;
 import org.springframework.web.client.RestTemplate;
 
