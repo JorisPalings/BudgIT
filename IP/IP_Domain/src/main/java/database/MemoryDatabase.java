@@ -82,24 +82,6 @@ public class MemoryDatabase implements Database {
     }
     
     @Override
-    public void changeExpenseCategory(Expense expense, Category category) {
-        if(expense == null) {
-            throw new DatabaseException("Expense is null");
-        }
-        if(category == null) {
-            throw new DatabaseException("Category is null");
-        }
-        Category originalCategory = null;
-        for(Category c: this.getCategories().values()) {
-            if(c.getExpenses().contains(expense)) {
-                originalCategory = c;
-            }
-        }
-        category.addExpense(expense);
-        originalCategory.removeExpense(expense);
-    }
-    
-    @Override
     public void changeExpenseName(Expense expense, String name) {
         if(expense == null) {
             throw new DatabaseException("Expense is null");
