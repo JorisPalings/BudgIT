@@ -148,8 +148,17 @@ public class RelationalDatabase implements Database {
     // Via category of manager.remove?
     @Override
     public void removeExpense(Expense expense, Category category) {
-        throw new UnsupportedOperationException("Not supported yet.8"); //To change body of generated methods, choose Tools | Templates.
-        //update>delete
+        try {
+            manager.getTransaction().begin();
+            Category categoryToRemoveExpenseFrom = manager.find(Category.class, category.getId());
+            Expense expenseToRemove = manager.find(Expense.class, expense.getId());
+            category.removeExpense(expense);
+            manager.remove(expense);
+            manager.flush();
+            manager.getTransaction().commit();
+        } catch(Exception e) {
+            throw new DatabaseException("RelationalDatabase: removeExpense: " + e.getMessage(), e);
+        }
     }
 
 }
