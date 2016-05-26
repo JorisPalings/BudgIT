@@ -61,10 +61,6 @@ public class Application {
         this.getDatabase().addExpense(expense, category);
     }
     
-    public void changeExpenseCategory(Expense expense, Category category) {
-        this.getDatabase().changeExpenseCategory(expense, category);
-    }
-    
     public void changeExpenseName(Expense expense, String name) {
         this.getDatabase().changeExpenseName(expense, name);
     }

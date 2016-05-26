@@ -22,8 +22,6 @@ public interface Database {
     
     public void addExpense(Expense expense, Category category);
     
-    public void changeExpenseCategory(Expense expense, Category category);
-    
     public void changeExpenseName(Expense expense, String name);
     
     public void changeExpenseAmount(Expense expense, double amount);

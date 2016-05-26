@@ -99,13 +99,6 @@ public class RelationalDatabase implements Database {
         }
     }
 
-    // Over categories loopen?
-    @Override
-    public void changeExpenseCategory(Expense expense, Category category) {
-        throw new UnsupportedOperationException("Not supported yet.4"); //To change body of generated methods, choose Tools | Templates.
-        //merge
-    }
-
     @Override
     public void changeExpenseName(Expense expense, String name) throws DatabaseException {
         try {
